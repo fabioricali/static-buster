@@ -1,0 +1,29 @@
+{
+  "name": "static-buster",
+  "version": "1.0.0",
+  "description": "Cache buster for static resources in html pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "cache",
+    "buster",
+    "static",
+    "resources",
+    "html"
+  ],
+  "author": "Fabio Ricali",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "defaulty": "^1.2.2"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabioricali/static-buster"
+  }
+}
