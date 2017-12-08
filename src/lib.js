@@ -2,6 +2,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const extend = require('defaulty');
 const URL = require('url');
+const queryString = require('querystring');
 
 class StaticBuster{
 
@@ -15,6 +16,9 @@ class StaticBuster{
 
         this.opts.files.forEach((file)=>{
             let content = fs.readFileSync(file).toString();
+
+            fs.writeFileSync(file + '-copy', content);
+
             this.$ = cheerio.load(content);
 
             this.$('link').each((i, el)=>{
@@ -33,9 +37,14 @@ class StaticBuster{
         el = this.$(el);
 
         let prevValue = el.attr(attr);
+        /*
+                const myURL = URL.parse(prevValue);
+                const query = myURLuery;
+                /*if(myURL.protocol)
+                    console.log(`${myURL.protocol}//${myURL.host}${myURL.pathname}`);*/
 
-        //const myURL = URL.parse(prevValue);
-        //console.log(myURL);
+        console.log(query);
+        //console.log(queryString.parse(prevValue));
 
         let symbol = prevValue.indexOf('?') !== -1 ? '&' : '?';
 
