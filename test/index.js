@@ -6,6 +6,6 @@ describe('static-buster', function () {
             files: [
                 './test/texture/index1.html'
             ]
-        }).run();
+        });
     });
 });
