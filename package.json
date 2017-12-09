@@ -1,6 +1,6 @@
 {
   "name": "staticbuster",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Cache buster for static resources in HTML pages",
   "main": "index.js",
   "bin": {
