@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mediasender</title>
+    <script src="resources/plugins/johndyer-mediaelement-8d2a55f/build/jquery.js"></script>
+    <script src="resources/plugins/johndyer-mediaelement-8d2a55f/build/mediaelement-and-player.min.js"></script>
+    <script src="resources/plugins/html2canvas.js"></script>
+    <script src="resources/plugins/jstz-1.0.4.min.js"></script>
+    <script src="resources/plugins/tinymce/tinymce.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="resources/plugins/plupload-2.3.1/js/plupload.full.min.js"></script>
+    <script src="resources/plugins/plupload-2.3.1/js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
+    <script src="resources/plugins/colpick/colpick.js"></script>
+    <script src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
+    <script src="resources/assets/jquery.knob.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="resources/assets/app_version.php"></script>
+    <link rel="stylesheet" href="resources/MyApp-all.css"/>
+    <script type="text/javascript" src="app.js"></script>
+    <script src="resources/assets/notification.js"></script>
+    <script src="resources/assets/lang.php?a=1&amp;b=2&amp;c=3&_sb=already_exists"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="resources/plugins/plupload-2.3.1/js/jquery.ui.plupload/css/jquery.ui.plupload.css">
+    <link rel="stylesheet" href="resources/plugins/clearbutton/ClearButton.css">
+    <link rel="stylesheet" href="resources/plugins/johndyer-mediaelement-8d2a55f/build/mediaelementplayer.min.css">
+    <link rel="stylesheet" href="resources/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/plugins/colpick/colpick.css">
+</head>
+<body>
+</body>
+</html>

@@ -3,6 +3,7 @@ const fs = require('fs');
 const extend = require('defaulty');
 const URL = require('url');
 const queryString = require('querystring');
+const dataUtils = require('./dataUtils');
 
 class StaticBuster{
 
@@ -12,43 +13,65 @@ class StaticBuster{
             files: [],
             busterValue: (new Date()).getTime(),
             busterParam: '_sb',
+            saveCopy: true
         });
 
-        this.opts.files.forEach((file)=>{
-            let content = fs.readFileSync(file).toString();
+        this.REF = {
+            script: 'src',
+            link: 'href'
+        };
 
-            fs.writeFileSync(file + '-copy', content);
+        return this.run();
+    }
+
+    async run() {
+
+        for(let file of this.opts.files){
+            let content = await dataUtils.readFile(file);
+
+            if(this.opts.saveCopy)
+                await dataUtils.writeFile(file + '-copy', content);
 
             this.$ = cheerio.load(content);
 
-            this.$('link').each((i, el)=>{
-                this.applyCacheBuster(el, 'href');
+            this.$('link,script').each((i, el)=>{
+                this.applyCacheBuster(el, this.REF[el.name]);
             });
 
-            this.$('script').each((i, el)=>{
-                this.applyCacheBuster(el, 'src');
-            });
+            await dataUtils.writeFile(file, this.$.html());
+        }
 
-            console.log(this.$.html())
-        })
     }
 
     applyCacheBuster(el, attr) {
+
+        if (this.$ === undefined) return;
+
         el = this.$(el);
 
         let prevValue = el.attr(attr);
-        /*
-                const myURL = URL.parse(prevValue);
-                const query = myURLuery;
-                /*if(myURL.protocol)
-                    console.log(`${myURL.protocol}//${myURL.host}${myURL.pathname}`);*/
 
-        console.log(query);
-        //console.log(queryString.parse(prevValue));
+        const myURL = URL.parse(prevValue);
+        const query = myURL.query;
 
-        let symbol = prevValue.indexOf('?') !== -1 ? '&' : '?';
+        let bustedUrl = '';
 
-        el.attr(attr, `${prevValue}${symbol}${this.opts.busterParam}=${this.opts.busterValue}`);
+        if(myURL.protocol)
+            // remote
+            bustedUrl = `${myURL.protocol}//${myURL.host}${myURL.pathname}`;
+        else
+            // local
+            bustedUrl = `${myURL.pathname}`;
+
+        if(query) {
+            let params = queryString.parse(query);
+            params[this.opts.busterParam] = this.opts.busterValue;
+            bustedUrl += `?${queryString.stringify(params)}`;
+        } else {
+            bustedUrl += `?${this.opts.busterParam}=${this.opts.busterValue}`;
+        }
+
+        el.attr(attr, bustedUrl);
     }
 
 }

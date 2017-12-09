@@ -17,10 +17,11 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "defaulty": "^1.2.2",
-    "query-string": "^5.0.1"
+    "defaulty": "^1.2.2"
   },
   "devDependencies": {
+    "bejs": "^1.14.0",
+    "fs-extra": "^4.0.3",
     "mocha": "^4.0.1"
   },
   "repository": {
