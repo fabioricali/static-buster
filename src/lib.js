@@ -47,7 +47,7 @@ class StaticBuster{
                 let dirname = path.dirname(file);
                 let basename = path.basename(file);
                 await fs.ensureDir(dirname);
-                file = dirname + '\\' + basename;
+                file = dirname + '/' + basename;
             }
 
             await fs.writeFile(file, this.$.html());

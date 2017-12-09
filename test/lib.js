@@ -11,11 +11,12 @@ const REF = {
 };
 
 describe('staticbuster', function () {
-    beforeEach(function () {
-        fs.removeSync('./test/fixtures/index1.html');
-        fs.removeSync('./test/fixtures/index1.html-copy');
-        fs.removeSync('./test/fixtures/index1-other.html');
-        fs.copySync('./test/fixtures/index1.html-origin', './test/fixtures/index1.html');
+    beforeEach(async function () {
+        await fs.remove('./test/fixtures/index1.html');
+        await fs.remove('./test/fixtures/index1.html-copy');
+        await fs.remove('./test/fixtures/index1-other.html');
+        await fs.copy('./test/fixtures/index1.html-origin', './test/fixtures/index1.html');
+        return Promise.resolve();
     });
 
     it('should be ok', function (done) {
