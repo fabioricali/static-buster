@@ -1,7 +1,7 @@
 {
   "name": "static-buster",
   "version": "1.0.0",
-  "description": "Cache buster for static resources in html pages",
+  "description": "Cache buster for static resources in HTML pages",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
