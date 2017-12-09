@@ -1,20 +1,24 @@
 const cheerio = require('cheerio');
-const fs = require('fs');
+const fs = require('fs-extra');
 const extend = require('defaulty');
 const URL = require('url');
 const queryString = require('querystring');
-const dataUtils = require('./data-utils');
+const arrayme = require('arrayme');
+const path = require('path');
 
 class StaticBuster{
 
     constructor(opts = {}) {
 
         this.opts = extend.copy(opts, {
-            files: [],
+            file: [],
+            dest: '',
             busterValue: (new Date()).getTime(),
             busterParam: '_sb',
             saveCopy: true
         });
+
+        this.opts.file = arrayme(this.opts.file);
 
         this.REF = {
             script: 'src',
@@ -26,11 +30,11 @@ class StaticBuster{
 
     async run() {
 
-        for(let file of this.opts.files){
-            let content = await dataUtils.readFile(file);
+        for(let file of this.opts.file){
+            let content = await fs.readFile(file);
 
             if(this.opts.saveCopy)
-                await dataUtils.writeFile(file + '-copy', content);
+                await fs.writeFile(file + '-copy', content);
 
             this.$ = cheerio.load(content);
 
@@ -38,7 +42,15 @@ class StaticBuster{
                 this.applyCacheBuster(el, this.REF[el.name]);
             });
 
-            await dataUtils.writeFile(file, this.$.html());
+            if(this.opts.dest) {
+                file = this.opts.dest;
+                let dirname = path.dirname(file);
+                let basename = path.basename(file);
+                await fs.ensureDir(dirname);
+                file = dirname + '\\' + basename;
+            }
+
+            await fs.writeFile(file, this.$.html());
         }
 
     }
@@ -76,4 +88,6 @@ class StaticBuster{
 
 }
 
-module.exports = StaticBuster;
+module.exports = (opts) => {
+    return new StaticBuster(opts);
+};

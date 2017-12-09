@@ -1,7 +1,4 @@
-<!DOCTYPE HTML>
-
-<html>
-<head>
+<!DOCTYPE html><html><head>
     <meta charset="UTF-8">
     <title>Mediasender</title>
     <script src="resources/plugins/johndyer-mediaelement-8d2a55f/build/jquery.js"></script>
@@ -17,11 +14,11 @@
     <script src="resources/assets/jquery.knob.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="resources/assets/app_version.php"></script>
-    <link rel="stylesheet" href="resources/MyApp-all.css"/>
+    <link rel="stylesheet" href="resources/MyApp-all.css">
     <script type="text/javascript" src="app.js"></script>
     <script src="resources/assets/notification.js"></script>
-    <script src="resources/assets/lang.php?a=1&amp;b=2&amp;c=3&_sb=already_exists"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+    <script src="resources/assets/lang.php?a=1&amp;b=2&amp;c=3&amp;_sb=1512833988607"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C300%2C600&amp;_sb=1512833988607">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="resources/plugins/plupload-2.3.1/js/jquery.ui.plupload/css/jquery.ui.plupload.css">
     <link rel="stylesheet" href="resources/plugins/clearbutton/ClearButton.css">
@@ -30,5 +27,5 @@
     <link rel="stylesheet" href="resources/plugins/colpick/colpick.css">
 </head>
 <body>
-</body>
-</html>
+
+</body></html>

@@ -16,7 +16,9 @@
   "author": "Fabio Ricali",
   "license": "MIT",
   "dependencies": {
+    "arrayme": "^1.0.2",
     "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.12.2",
     "defaulty": "^1.2.2"
   },
   "devDependencies": {
