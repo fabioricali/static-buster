@@ -22,11 +22,11 @@
     "arrayme": "^1.0.2",
     "cheerio": "^1.0.0-rc.2",
     "commander": "^2.12.2",
-    "defaulty": "^2.0.0"
+    "defaulty": "^2.0.0",
+    "fs-extra": "^4.0.3"
   },
   "devDependencies": {
     "bejs": "^1.14.0",
-    "fs-extra": "^4.0.3",
     "mocha": "^4.0.1"
   },
   "repository": {
