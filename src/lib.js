@@ -53,6 +53,7 @@ class StaticBuster{
             await fs.writeFile(file, this.$.html());
         }
 
+        return Promise.resolve(this.opts.file);
     }
 
     applyCacheBuster(el, attr) {

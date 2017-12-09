@@ -7,8 +7,8 @@ program
     .version(version)
     .option('-f, --file <fileName>', 'file to process')
     .option('-d, --dest [destination]', 'optional file destination')
-    .option('-b, --savecopy [boolean]', 'optional save a copy')
-    .option('-p, --busterParam [value]', 'optional buster param, for default is _sb')
+    .option('-b, --saveCopy [boolean]', 'optional save a copy')
+    .option('-p, --busterParam [param]', 'optional buster param, for default is _sb')
     .option('-v, --busterValue [value]', 'optional buster value, for default is the timestamp')
     .parse(process.argv)
 ;
@@ -16,5 +16,7 @@ program
 lib({
     file: program.file,
     dest: program.dest,
-    saveCopy: Boolean(program.savecopy)
-}).then(() => console.log('ok')).catch(err => console.log(err));
+    saveCopy: Boolean(program.saveCopy),
+    busterParam: program.busterParam,
+    busterValue: program.busterValue
+}).then((f) => console.log('processed:', f)).catch(err => console.err(err));

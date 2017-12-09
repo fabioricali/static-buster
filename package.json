@@ -1,8 +1,11 @@
 {
-  "name": "static-buster",
-  "version": "1.0.0",
+  "name": "staticbuster",
+  "version": "0.0.0",
   "description": "Cache buster for static resources in HTML pages",
   "main": "index.js",
+  "bin": {
+    "staticbuster": "src/cli.js"
+  },
   "scripts": {
     "test": "mocha test"
   },
@@ -19,7 +22,7 @@
     "arrayme": "^1.0.2",
     "cheerio": "^1.0.0-rc.2",
     "commander": "^2.12.2",
-    "defaulty": "^1.2.2"
+    "defaulty": "^2.0.0"
   },
   "devDependencies": {
     "bejs": "^1.14.0",
@@ -28,6 +31,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabioricali/static-buster"
+    "url": "https://github.com/fabioricali/staticbuster"
   }
 }
