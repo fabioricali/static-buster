@@ -3,7 +3,7 @@ const fs = require('fs');
 const extend = require('defaulty');
 const URL = require('url');
 const queryString = require('querystring');
-const dataUtils = require('./dataUtils');
+const dataUtils = require('./data-utils');
 
 class StaticBuster{
 
