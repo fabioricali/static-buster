@@ -15,7 +15,7 @@ describe('staticbuster cli', function () {
     beforeEach(function () {
         fs.removeSync('./test/fixtures/index1.html');
         fs.removeSync('./test/fixtures/index1.html-copy');
-        fs.removeSync('./test/fixtures/other/index1.html');
+        fs.removeSync('./test/fixtures/index1-other.html');
         fs.copySync('./test/fixtures/index1.html-origin', './test/fixtures/index1.html');
     });
 
@@ -48,8 +48,8 @@ describe('staticbuster cli', function () {
     });
 
     it('should be ok, set destination', function (done) {
-        staticBuster('node src/cli.js -f ./test/fixtures/index1.html -d ./test/fixtures/other/index1.html -v 1.0.0').then(() => {
-            return fs.readFile('./test/fixtures/other/index1.html');
+        staticBuster('node src/cli.js -f ./test/fixtures/index1.html -d ./test/fixtures/index1-other.html -v 1.0.0').then(() => {
+            return fs.readFile('./test/fixtures/index1-other.html');
         }).then((data) => {
             $ = cheerio.load(data);
             $('link,script').each((i, el) => {
