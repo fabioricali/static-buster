@@ -64,7 +64,7 @@ describe('staticbuster cli', function () {
     });
 
     it('should be ok, disable save copy', function (done) {
-        staticBuster('node src/cli.js -f ./test/fixtures/index1.html b false').then(() => {
+        staticBuster('node src/cli.js -f ./test/fixtures/index1.html -b false').then(() => {
             return fs.pathExists('./test/fixtures/index1.html-copy');
         }).then((result) => {
             if(!result)
