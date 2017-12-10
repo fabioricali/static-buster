@@ -17,23 +17,19 @@ Imagine this scenario:
 
 **index.html**
 
-```
+```html
 <!DOCTYPE html>
     <html>
         <head>
-...
-            <script src="resources/plugins/html2canvas.js"></script>
-            <link rel="stylesheet" href="resources/plugins/colpick/colpick.css">   
-...
+            <script src="res/html2canvas.js"></script>
+            <link rel="stylesheet" href="res/colpick.css">   
 ```
 
 You may have cache problems! staticbuster adds a cache buster for each resource. For example:
 
-```
-...
-            <script src="resources/plugins/html2canvas.js?_sb=1512833988607"></script>
-            <link rel="stylesheet" href="resources/plugins/colpick/colpick.css?_sb=1512833988607">   
-...
+```html
+            <script src="res/html2canvas.js?_sb=1512833988607"></script>
+            <link rel="stylesheet" href="res/colpick.css?_sb=1512833988607">   
 ```
 
 ## Usage
