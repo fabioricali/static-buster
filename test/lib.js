@@ -28,6 +28,7 @@ describe('staticbuster', function () {
         }).then((data) => {
             $ = cheerio.load(data);
             $('link,script').each((i, el) => {
+                if (!el.attribs[REF[el.name]]) return;
                 let query = URL.parse(el.attribs[REF[el.name]]).query;
                 let params = queryString.parse(query);
                 be.err.equal(params['_sb'], '0.0.0');
@@ -58,6 +59,7 @@ describe('staticbuster', function () {
         }).then((data) => {
             $ = cheerio.load(data);
             $('link,script').each((i, el) => {
+                if (!el.attribs[REF[el.name]]) return;
                 let query = URL.parse(el.attribs[REF[el.name]]).query;
                 let params = queryString.parse(query);
                 be.err.equal(params['_sb'], '1.0.0');

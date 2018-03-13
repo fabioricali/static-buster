@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="resources/plugins/johndyer-mediaelement-8d2a55f/build/mediaelementplayer.min.css">
     <link rel="stylesheet" href="resources/font-awesome-4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/plugins/colpick/colpick.css">
+    <script>
+        console.log("An inline script!");
+    </script>
 </head>
 <body>
 
