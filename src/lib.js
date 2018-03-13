@@ -64,6 +64,8 @@ class StaticBuster{
 
         let prevValue = el.attr(attr);
 
+        if (!prevValue) return;
+
         const myURL = URL.parse(prevValue);
         const query = myURL.query;
 
